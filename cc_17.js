@@ -69,3 +69,17 @@ class VIPCustomer extends Customer {
   vipCustomer1.addPurchase(500);
   vipCustomer1.addPurchase(1000);
   console.log(`${vipCustomer1.name} has spent a total of $${vipCustomer1.getTotalSpent()}`);
+
+  // Task 4: Build a Client Report System
+console.log("\nTask 4: Client Report System");
+const customers = [customer1, vipCustomer1];
+const totalRevenue = customers.reduce((total, customer) => total + customer.getTotalSpent(), 0);
+const highSpenders = customers.filter((customer) => customer.getTotalSpent() > 500);
+const customerSummary = customers.map((customer) => ({
+  name: customer.name,
+  totalSpent: customer.getTotalSpent(),
+}));
+
+console.log("Total revenue:", totalRevenue);
+console.log("High-spending customers:", highSpenders);
+console.log("Customer summary:", customerSummary);
